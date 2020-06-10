@@ -1,0 +1,4 @@
+flask
+flask-babel
+flask-login
+flask-ldapconn
