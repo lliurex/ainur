@@ -1,4 +1,4 @@
-from app import login, ldap
+from ainur import login, ldap
 from flask_login import UserMixin
 
 

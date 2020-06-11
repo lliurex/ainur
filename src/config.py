@@ -12,3 +12,4 @@ class Config(object):
     LANGUAGES = ['ca_ES_valencia','es','en']
     STATIC_FOLDER = "/static"
     EXPLAIN_TEMPLATE_LOADING = True if os.environ.get('FLASK_ENV') == 'development' else False
+    BASE_PATH = "/usr/share/ainur"
