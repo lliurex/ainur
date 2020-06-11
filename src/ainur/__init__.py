@@ -44,3 +44,5 @@ def get_locale():
     new_list_languages = datastructures.LanguageAccept(list_languages)
     request.accept_languages = new_list_languages
     return new_list_languages.best_match(app.config['LANGUAGES'])
+
+from ainur import models
