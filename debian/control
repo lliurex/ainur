@@ -8,6 +8,6 @@ Homepage: http://lliurex.net
 
 Package: ainur
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, python3-flask, python3-flask-babel, python3-flask-login, python3-flask-ldapconn
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-flask, python3-flask-babel, python3-flask-login, python3-flask-ldapconn, libapache2-mod-wsgi-py3
 Description: Plugable platform to add services and admin web
  <insert long description, indented with spaces>
