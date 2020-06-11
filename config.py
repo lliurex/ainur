@@ -11,4 +11,4 @@ class Config(object):
     LDAP_REQUIRE_CERT = ssl.CERT_NONE
     LANGUAGES = ['ca_ES_valencia','es','en']
     STATIC_FOLDER = "/static"
-    EXPLAIN_TEMPLATE_LOADING = True if os.environ.get('FLASK_ENV') == development else False
+    EXPLAIN_TEMPLATE_LOADING = True if os.environ.get('FLASK_ENV') == 'development' else False

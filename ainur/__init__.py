@@ -20,10 +20,19 @@ login.login_view = 'login'
 basepath = str(Path(__name__).parent.absolute())
 modules_path = basepath+'/ainur/modules'
 for module_name in listdir(modules_path):
-    module_spec = imp_util.spec_from_file_location('ainur.modules.'+x,modules_path+'/'+module_name+'/__init__.py')
+    module_spec = imp_util.spec_from_file_location('ainur.modules.'+module_name, modules_path+'/'+module_name+'/__init__.py')
     temp_module = imp_util.module_from_spec(module_spec)
     module_spec.loader.exec_module(temp_module)
-    app.register_blueprint(getattr(temp_module,'simple_page'),url_prefix='/{module_name}'.format(module_name=module_name))
+    app.register_blueprint(getattr(temp_module,'exportmodule'),url_prefix='/{module_name}'.format(module_name=module_name))
+
+adminmodules_path = basepath+'/ainur/adminmodules'
+for module_name in listdir(adminmodules_path):
+    module_spec = imp_util.spec_from_file_location('ainur.adminmodules.'+module_name, adminmodules_path+'/'+module_name+'/__init__.py')
+    temp_module = imp_util.module_from_spec(module_spec)
+    module_spec.loader.exec_module(temp_module)
+    app.register_blueprint(getattr(temp_module,'exportmodule'),url_prefix='/admin/{module_name}'.format(module_name=module_name))
+
+
 
 @babel.localeselector
 def get_locale():
