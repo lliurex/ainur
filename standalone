@@ -1,2 +1,3 @@
 #!/bin/bash
+cd src
 FLASK_APP=ainur.py FLASK_ENV=development flask run $@
