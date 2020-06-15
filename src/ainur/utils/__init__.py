@@ -29,11 +29,10 @@ def validate_groups(groups):
         return wrapper
     return inner_function
 
-
-def dprint (self,msg=''):
+def dprint (msg='',class_name=''):
     if app.config['ENV'] == 'development':
         try:
-            print ("%s"%msg)
+            print ("{class_name} {msg}".format(class_name=class_name,msg=msg))
         except Exception as e:
-            print("[RSS](dprint) Error: %s"%e)
+            print("(dprint) Error: {error}".format(error=e)
 #def dprint
