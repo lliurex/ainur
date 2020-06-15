@@ -2,6 +2,7 @@ from flask_login import current_user
 from functools import wraps
 from flask import render_template
 from flask import Blueprint as flask_Blueprint
+from ainur import app
 import grp
 
 def validate_users(users):
@@ -27,3 +28,12 @@ def validate_groups(groups):
             return function(*args,**kwargs)
         return wrapper
     return inner_function
+
+
+def dprint (self,msg=''):
+    if app.config['ENV'] == 'development':
+        try:
+            print ("%s"%msg)
+        except Exception as e:
+            print("[RSS](dprint) Error: %s"%e)
+#def dprint
