@@ -34,5 +34,5 @@ def dprint (msg='',class_name=''):
         try:
             print ("{class_name} {msg}".format(class_name=class_name,msg=msg))
         except Exception as e:
-            print("(dprint) Error: {error}".format(error=e)
+            print("(dprint) Error: {error}".format(error=e))
 #def dprint
