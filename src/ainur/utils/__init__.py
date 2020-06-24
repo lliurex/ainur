@@ -6,7 +6,7 @@ from ainur import app
 import grp
 
 def validate_users(users):
-    def inner_function(mi_funcion):
+    def inner_function(function):
         @wraps(function)
         def wrapper(*args,**kwargs):
             if current_user.is_authenticated and current_user.username not in users:
@@ -17,7 +17,7 @@ def validate_users(users):
 
 
 def validate_groups(groups):
-    def inner_function(mi_funcion):
+    def inner_function(function):
         @wraps(function)
         def wrapper(*args,**kwargs):
             if current_user.is_authenticated:
