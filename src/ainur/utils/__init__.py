@@ -20,11 +20,12 @@ def validate_groups(groups):
     def inner_function(mi_funcion):
         @wraps(function)
         def wrapper(*args,**kwargs):
-            user_groups = [g.gr_name for g in grp.getgrall() if current_user.username in g.gr_mem]
-            gid = pwd.getpwnam(current_user.username).pw_gid
-            user_groups.append(grp.getgrgid(gid).gr_name)
-            if current_user.is_authenticated and len(set(groups) & set(user_groups)) == 0 :
-                return render_template('access_denied.html')
+            if current_user.is_authenticated:
+                user_groups = [g.gr_name for g in grp.getgrall() if current_user.username in g.gr_mem]
+                gid = pwd.getpwnam(current_user.username).pw_gid
+                user_groups.append(grp.getgrgid(gid).gr_name)
+                if current_user.is_authenticated and len(set(groups) & set(user_groups)) == 0 :
+                    return render_template('access_denied.html')
             return function(*args,**kwargs)
         return wrapper
     return inner_function
