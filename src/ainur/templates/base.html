@@ -1,7 +1,27 @@
 <html>
-    <body>
-        Base html
 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Ainur</title>
+        {% endif %}
+        <link rel="stylesheet" href="/static/style/main.css">
+        <script src="/static/js/utils.js"></script>
+    </head>
+
+
+    <body>
         {% block content %}{% endblock %}
+
+        <script>
+            list_range = document.querySelectorAll("input[type=range]");
+            for(range_input of list_range){
+                    range_input.addEventListener("mousemove",colorize_range);
+                    colorize_range.call(range_input);
+                }
+        </script>
     </body>
 </html>

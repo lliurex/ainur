@@ -45,4 +45,4 @@ def get_locale():
     request.accept_languages = new_list_languages
     return new_list_languages.best_match(app.config['LANGUAGES'])
 
-from ainur import models
+from ainur import models, routes
