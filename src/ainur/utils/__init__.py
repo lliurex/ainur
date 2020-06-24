@@ -32,7 +32,7 @@ def validate_groups(groups):
     return inner_function
 
 def dprint (msg='',class_name=''):
-    if app.config['ENV'] == 'development':
+    if 'ENV' in app.config and app.config['ENV'] == 'development':
         try:
             print ("{class_name} {msg}".format(class_name=class_name,msg=msg))
         except Exception as e:
