@@ -10,7 +10,15 @@ from ainur.models import User
 @app.route('/')
 @app.route('/index')
 def index():
+    modules_path = os.path.join(app.config['BASE_PATH'],'ainur','modules')
+    if os.path.exists(os.path.join(modules_path,'main','__init__.py')):
+        module_spec = imp_util.spec_from_file_location('ainur.modules.main', os.path.join(modules_path,'main','__init__.py'))
+        temp_module = imp_util.module_from_spec(module_spec)
+        module_spec.loader.exec_module(temp_module)
+        return temp_module.main()
+
     return render_template('index.html',title='Home')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
