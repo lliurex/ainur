@@ -1,3 +1,9 @@
+ainur (0.2) bionic; urgency=medium
+
+  * Add support to main page
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Fri, 26 Jun 2020 15:08:07 +0200
+
 ainur (0.1.1) bionic; urgency=medium
 
   * check if env variable is defined on config
