@@ -20,8 +20,8 @@ login.login_view = 'login'
 
 modules_path = os_path_join(app.config['BASE_PATH'],'ainur','modules')
 list_modules = listdir(modules_path)
-if 'main' in list_modules:
-    list_modules.pop(list_modules.index('main'))
+# if 'main' in list_modules:
+#     list_modules.pop(list_modules.index('main'))
 for module_name in :
     module_spec = imp_util.spec_from_file_location('ainur.modules.'+module_name, os_path_join(modules_path,module_name,'__init__.py'))
     temp_module = imp_util.module_from_spec(module_spec)
@@ -30,8 +30,8 @@ for module_name in :
 
 adminmodules_path = os_path_join(app.config['BASE_PATH'],'ainur','adminmodules')
 list_adminmodules = listdir(adminmodules_path)
-if 'main' in list_adminmodules:
-    list_adminmodules.pop(list_adminmodules.index('main'))
+# if 'main' in list_adminmodules:
+#     list_adminmodules.pop(list_adminmodules.index('main'))
 for module_name in :
     module_spec = imp_util.spec_from_file_location('ainur.adminmodules.'+module_name, os_path_join(adminmodules_path,module_name,'__init__.py'))
     temp_module = imp_util.module_from_spec(module_spec)
