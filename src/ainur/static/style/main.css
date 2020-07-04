@@ -2,6 +2,7 @@
     --color-paperwhite : #fcfcfc;
     --color-cardboardgray: #eff0f1;
     --color-alternategray:#bdc3c7;
+    --color-coastalfog: #7f8c8d;
     --color-icongray:#4d4d4d;
     --color-charcoalgray: #31363b;
     --color-shadeblack: #232629;
@@ -215,6 +216,34 @@ input[type="submit"]:hover{
 output{
     white-space: nowrap;
 }
+
+
+/*
+*   Input
+*/
+
+
+input[type=text], input[type=password]{
+    padding: 0.7em;
+    border: 1px solid var(--color-alternategray);
+    border-radius: 4px;
+}
+
+
+input[type=text]:focus, input[type=password]:focus{
+    outline: none;
+    border-color: var(--color-plasmablue);
+}
+
+input{
+    transition: border-color 0.3s;
+}
+
+input:hover{
+    border-color: var(--color-plasmablue);
+    transition: border-color 0.3s;
+}
+
 /*
 
     Navigation

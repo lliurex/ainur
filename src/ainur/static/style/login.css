@@ -1,0 +1,39 @@
+body{
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, var(--color-alternategray) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-alternategray) 1px, transparent 1px);
+    background-color: var(--color-cardboardgray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginform{
+    border: 2px solid var(--color-coastalfog);
+    background-color: var(--color-cardboardgray);
+    max-width: 500px;
+    border-radius: 4px;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginform .logo{
+    max-width: 350px;
+    border-bottom: 4px solid var(--color-coastalfog);
+    padding-bottom: 10px;   
+}
+
+
+.loginform input[type=submit]{
+    width: 100%;
+}
+
+.aligncenter{
+    display: flex;
+    align-items: center;
+}
