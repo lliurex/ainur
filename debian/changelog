@@ -1,3 +1,9 @@
+ainur (0.3) bionic; urgency=medium
+
+  * Remove ignore main modules
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Tue, 30 Jun 2020 09:28:57 +0200
+
 ainur (0.2) bionic; urgency=medium
 
   * Add support to main page
