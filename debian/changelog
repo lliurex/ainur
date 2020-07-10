@@ -1,3 +1,11 @@
+ainur (0.5) bionic; urgency=medium
+
+  * Added new css styles
+  * Add new utils
+  * Support to menus and permissions
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Fri, 10 Jul 2020 17:17:21 +0200
+
 ainur (0.4) bionic; urgency=medium
 
   * Enhance login page
