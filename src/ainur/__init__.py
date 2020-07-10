@@ -17,6 +17,8 @@ ldap = LDAPConn(app)
 babel = Babel(app)
 login = LoginManager(app)
 login.login_view = 'login'
+app.permissions_list = {'modules':{},'adminmodules':{}}
+app.menu_list = {'modules':[],'adminmodules':[]}
 
 modules_path = os_path_join(app.config['BASE_PATH'],'ainur','modules')
 # list_modules = listdir(modules_path)
@@ -27,6 +29,11 @@ for module_name in listdir(modules_path):
     temp_module = imp_util.module_from_spec(module_spec)
     module_spec.loader.exec_module(temp_module)
     app.register_blueprint(getattr(temp_module,'exportmodule'),url_prefix='/{module_name}'.format(module_name=module_name))
+    if 'ROUTES_PERMISSIONS' in dir(temp_module):
+        app.permissions_list['modules'][module_name] = temp_module.ROUTES_PERMISSIONS
+
+    if 'MENU' in dir(temp_module):
+        app.menu_list['modules'].append(temp_module.MENU)
 
 adminmodules_path = os_path_join(app.config['BASE_PATH'],'ainur','adminmodules')
 # list_adminmodules = listdir(adminmodules_path)
@@ -37,7 +44,11 @@ for module_name in listdir(adminmodules_path):
     temp_module = imp_util.module_from_spec(module_spec)
     module_spec.loader.exec_module(temp_module)
     app.register_blueprint(getattr(temp_module,'exportmodule'),url_prefix='/admin/{module_name}'.format(module_name=module_name))
-
+    if 'ROUTES_PERMISSIONS' in dir(temp_module):
+        app.permissions_list['adminmodules'][module_name] = temp_module.ROUTES_PERMISSIONS
+    
+    if 'MENU' in dir(temp_module):
+        app.menu_list['adminmodules'].append(temp_module.MENU)
 
 
 @babel.localeselector

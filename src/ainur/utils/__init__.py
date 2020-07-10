@@ -38,3 +38,12 @@ def dprint (msg='',class_name=''):
         except Exception as e:
             print("(dprint) Error: {error}".format(error=e))
 #def dprint
+
+def get_current_user_groups():
+    user_groups = []
+    if current_user.is_authenticated:
+        user_groups = [g.gr_name for g in grp.getgrall() if current_user.username in g.gr_mem]
+        gid = pwd.getpwnam(current_user.username).pw_gid
+        user_groups.append(grp.getgrgid(gid).gr_name)
+    return user_groups
+
