@@ -1,3 +1,10 @@
+ainur (0.5.1) bionic; urgency=medium
+
+  * Set apache config
+  * update css
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 13 Jul 2020 18:27:59 +0200
+
 ainur (0.5) bionic; urgency=medium
 
   * Added new css styles
