@@ -1,2 +1,3 @@
 web_settings/* /etc/apache2/lliurex-location/
 src/*	/usr/share/ainur
+bin/*   /usr/share/ainur/bin/

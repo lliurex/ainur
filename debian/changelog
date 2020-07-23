@@ -1,3 +1,9 @@
+ainur (0.5.2) bionic; urgency=medium
+
+  * Add encrypt login
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Thu, 23 Jul 2020 12:29:27 +0200
+
 ainur (0.5.1) bionic; urgency=medium
 
   * Set apache config
