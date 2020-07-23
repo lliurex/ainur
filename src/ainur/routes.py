@@ -4,6 +4,8 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user
 from flask_babel import lazy_gettext as _l
 from werkzeug.urls import url_parse
+import rsa
+import base64
 
 from ainur.forms import LoginForm
 from ainur import app
@@ -29,7 +31,10 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter('username: '+ form.username.data).first()
-        if user is None or not user.check_password(form.password.data):
+        with open('/etc/ainur/ssl/private_key.pem','rb') as fd:        
+            privkey = rsa.PrivateKey.load_pkcs1(fd.read())  
+        passw = rsa.decrypt(base64.b64decode(form.password.data),privkey)
+        if user is None or not user.check_password(passw):
             flash(_l('Invalid username or password'))
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
@@ -37,7 +42,9 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template('login.html', title='Sign In', form=form)
+    with open('/etc/ainur/ssl/public_key.pem','r') as fd:
+        key = fd.read()
+    return render_template('login.html', title='Sign In', form=form, publickey=key)
 
 @app.route('/logout')
 def logout():

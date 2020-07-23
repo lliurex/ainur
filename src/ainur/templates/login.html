@@ -2,13 +2,25 @@
 
 {% block head%}
 <link rel="stylesheet" href="{{ url_for( 'static', filename='style/login.css' ) }}">
+<script src="{{ url_for( 'static', filename='js/jsencrypt.min.js' ) }}" ></script>
+<script>
+	const publickey = `{{ publickey }}`;
+	var encrypt = new JSEncrypt();
+	encrypt.setPublicKey(publickey);
+	function login(){
+		var password = document.querySelector('#password');
+		var loginform = document.querySelector('#loginform');
+		password.value = encrypt.encrypt(password.value);
+		loginform.submit();
+	}
+</script>
 {% endblock %}
 
 {% block content %}
     <div class="loginform">
 
         <img class="logo" src="{{ url_for( 'static', filename='images/logo.svg' ) }}" alt="">
-        <form action="" method="post" novalidate>
+        <form id="loginform" action="" method="post" novalidate>
             {{ form.hidden_tag() }}
             <p>
                 {{ form.username(size=32,placeholder='username') }}<br>
@@ -22,7 +34,9 @@
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
-            <p>{{ form.submit() }}</p>
+	    <p>
+	    	<button class="submit" onclick="login()">Sign In</button>
+	    </p>
             <p><div class="aligncenter">{{ form.remember_me() }} {{ form.remember_me.label }}</div></p>
         </form>
 
