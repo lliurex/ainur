@@ -29,7 +29,7 @@ body{
 }
 
 
-.loginform input[type=submit]{
+.loginform button.submit{
     width: 100%;
 }
 
@@ -37,3 +37,5 @@ body{
     display: flex;
     align-items: center;
 }
+
+
