@@ -1,3 +1,9 @@
+ainur (0.6.2) focal; urgency=medium
+
+  * Initial release for focal
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 16 Mar 2021 12:58:14 +0100
+
 ainur (0.5.2) bionic; urgency=medium
 
   * Add encrypt login
