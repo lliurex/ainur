@@ -20,7 +20,7 @@ set -e
 
 case "$1" in
     configure)
-	    /usr/bin/ainur/bin/generate_ainur_pairkeys
+	    /usr/share/ainur/bin/generate_ainur_pairkeys || true
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
