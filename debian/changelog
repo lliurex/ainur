@@ -1,3 +1,9 @@
+ainur (0.6.5) focal; urgency=medium
+
+  * Fix bug with generate keys
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Wed, 21 Jul 2021 15:22:10 +0200
+
 ainur (0.6.4) focal; urgency=medium
 
   * Fix bug with ldap login
