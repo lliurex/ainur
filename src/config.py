@@ -9,6 +9,7 @@ class Config(object):
     #     'sqlite:///' + os.path.join(basedir, 'app.db')
     # SQLALCHEMY_TRACK_MODIFICATIONS = False
     LDAP_REQUIRE_CERT = ssl.CERT_NONE
+    LDAP_TLS_VERSION = ssl.PROTOCOL_TLSv1_2
     LANGUAGES = ['ca_ES_valencia','es','en']
     STATIC_FOLDER = "/static"
     EXPLAIN_TEMPLATE_LOADING = True if os.environ.get('FLASK_ENV') == 'development' else False
