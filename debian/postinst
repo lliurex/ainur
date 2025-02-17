@@ -20,6 +20,10 @@ set -e
 
 case "$1" in
     configure)
+            if dpkg --compare-versions "$2" lt 0.6.6; then
+		# we need to regenerate ssl certificate
+                rm -rf /etc/ainur/ssl/*.pem || true
+	    fi	
 	    /usr/share/ainur/bin/generate_ainur_pairkeys || true
     ;;
 
