@@ -5,7 +5,7 @@ CONFIG_PATH="/etc/ainur/ssl/"
 mkdir -p ${CONFIG_PATH} || true
 
 if [ ! -e ${CONFIG_PATH}/private_key.pem -o ! -e ${CONFIG_PATH}/public_key.pem ]; then
-        openssl genrsa -out ${CONFIG_PATH}/private_key.pem 2048
+        openssl genrsa -traditional -out ${CONFIG_PATH}/private_key.pem 2048
         openssl rsa -in ${CONFIG_PATH}/private_key.pem -out ${CONFIG_PATH}/public_key.pem -outform PEM -pubout
         chmod 644  ${CONFIG_PATH}/public_key.pem
 	chmod 660 ${CONFIG_PATH}/private_key.pem
